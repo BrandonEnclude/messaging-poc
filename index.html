@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Support – Salesforce Embedded Messaging Demo</title>
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: #f7f7fa;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    header {
+      background: #005fb2;
+      color: #fff;
+      width: 100%;
+      padding: 1.5rem 0 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    main {
+      margin: 2rem 0 0 0;
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2rem;
+    }
+    p {
+      color: #333;
+      margin: 0.5rem 0 1.5rem 0;
+    }
+    .note {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact Support</h1>
+    <div>Salesforce Embedded Messaging Demo</div>
+  </header>
+  <main>
+    <p>
+      Welcome! This is a minimal test page for Salesforce Embedded Messaging.<br>
+      Click the chat widget (bottom right) to start a conversation with support.
+    </p>
+    <div class="note">
+      <strong>Note:</strong> This page is for testing only. The widget loads from your Salesforce sandbox.
+    </div>
+  </main>
+  <script type='text/javascript'>
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'en_US';
+        embeddedservice_bootstrap.init(
+          '00Ddt000007WaPJ',
+          'AsIAm_Infoline_Messaging',
+          'https://asiam--devinfo.sandbox.my.site.com/ESWAsIAmInfolineMessagi1779789403054',
+          {
+            scrt2URL: 'https://asiam--devinfo.sandbox.my.salesforce-scrt.com'
+          }
+        );
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    };
+  </script>
+  <script type='text/javascript' src='https://asiam--devinfo.sandbox.my.site.com/ESWAsIAmInfolineMessagi1779789403054/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
+</html>
